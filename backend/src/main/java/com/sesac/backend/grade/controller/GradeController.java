@@ -11,10 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import lombok.RequiredArgsConstructor;
 import com.sesac.backend.grade.service.GradeService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
@@ -48,6 +45,14 @@ public class GradeController {
             @Parameter(description = "년도") @RequestParam int year) {
         return ResponseEntity.ok(gradeService.findAllByCourseCourseNameAndCourseOpeningSemesterAndCourseOpeningYear(courseName, semester, year));
     }
+
+//     @GetMapping("/course")
+// public ResponseEntity<List<GradeDto>> getAllGradesByCourseAndSemester(
+//         @Parameter(description = "강의 코드") @RequestParam String courseCode,
+//         @Parameter(description = "학기 (예: Fall, Spring)") @RequestParam String semester,
+//         @Parameter(description = "년도") @RequestParam int year) {
+//     return ResponseEntity.ok(gradeService.findAllByCourseCodeAndSemesterAndYear(courseCode, semester, year));
+// }
 
     @Operation(summary = "성적 일괄 수정", description = "여러 학생의 성적을 한 번에 수정합니다.")
     @ApiResponse(responseCode = "200", description = "수정 성공")

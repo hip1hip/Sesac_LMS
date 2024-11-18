@@ -72,6 +72,19 @@ public class GradeService {
                 .collect(Collectors.toList());
     }
 
+
+    // public List<GradeDto> findAllByCourseCodeAndSemesterAndYear(String courseCode, String semester, int year) {
+    //     List<Grade> grades = gradeRepository.findAllByCourseOpeningSemesterAndCourseOpeningCourseCourseCodeAndCourseOpeningYear(
+    //         semester, courseCode, year);
+    //     return grades.stream()
+    //             .map(GradeDto::from)
+    //             .collect(Collectors.toList());
+    // }
+
+
+
+
+
     //수정
     @Transactional
     public GradeDto updateGradeScores(GradeUpdateRequest request) {
